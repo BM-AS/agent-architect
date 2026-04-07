@@ -29,6 +29,7 @@ jobs:
             --slug blockmind-agent-architect \
             --name "Agent Architect" \
             --version "${{ steps.version.outputs.version }}" \
-            --changelog "Release v${{ steps.version.outputs.version }}"
+            --changelog "Release v${{ steps.version.outputs.version }}" \
+            || echo "ClawHub publish failed (version may already exist)"
         env:
           CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}

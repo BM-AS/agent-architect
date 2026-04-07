@@ -1,7 +1,6 @@
 {
   "name": "agent-architect",
   "version": "1.0.0",
-  "private": true,
   "description": "LLM-maintained knowledge base with curated external references and a filesystem-native CLI.",
   "type": "module",
   "engines": {
