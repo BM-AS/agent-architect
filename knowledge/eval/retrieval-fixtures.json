@@ -1,0 +1,57 @@
+{
+  "schema": "kb-retrieval-fixtures.v1",
+  "description": "Ground-truth fixtures for kb search precision@1 and recall@5 evaluation. Each fixture has a query, the issue/alert text it derives from, and the wiki/snapshot pages that should appear in results.",
+  "fixtures": [
+    {
+      "id": "f1-cron-job",
+      "query": "set up scheduled cron job to send daily report",
+      "issueText": "We need an internal agent to email a daily activity report at 9am UTC. What's the OpenClaw-native way to schedule this?",
+      "expectedPaths": [
+        "knowledge/external-docs/snapshots/openclaw-docs/automation/cron-jobs.md",
+        "knowledge/external-docs/snapshots/openclaw-docs/automation/index.md"
+      ],
+      "rationale": "The user wants exact-time scheduling. cron-jobs.md is the canonical answer; automation/index.md is the decision guide that points there."
+    },
+    {
+      "id": "f2-multi-step-workflow",
+      "query": "durable multi-step workflow with branching",
+      "issueText": "I want to build a flow that ingests an issue, searches the wiki, generates a work packet, and saves it as an artifact. Each step needs to be durable so we can retry on failure.",
+      "expectedPaths": [
+        "knowledge/external-docs/snapshots/openclaw-docs/automation/taskflow.md",
+        "knowledge/external-docs/snapshots/openclaw-docs/automation/index.md"
+      ],
+      "rationale": "Task Flow is the OpenClaw-native multi-step durable orchestration primitive."
+    },
+    {
+      "id": "f3-isolated-docker-gateway",
+      "query": "run a second isolated openclaw gateway in docker on different port",
+      "issueText": "I want to run a POC OpenClaw gateway alongside the existing one on this machine. It must use a non-default host port and not collide with the running gateway.",
+      "expectedPaths": [
+        "knowledge/external-docs/snapshots/openclaw-docs/install/docker.md",
+        "knowledge/external-docs/snapshots/openclaw-docs/gateway/multiple-gateways.md",
+        "knowledge/external-docs/snapshots/openclaw-docs/gateway/configuration.md"
+      ],
+      "rationale": "Three pages cover this: docker install, multi-gateway pattern, and gateway config for ports/dirs."
+    },
+    {
+      "id": "f4-skill-files",
+      "query": "create a SKILL.md file with description and instructions",
+      "issueText": "How do I add a file-based skill to my agent so it can use a specific procedure when triggered?",
+      "expectedPaths": [
+        "knowledge/external-docs/snapshots/openclaw-docs/skills.md",
+        "knowledge/wiki/summaries/openclaw-docs.md"
+      ],
+      "rationale": "OpenClaw skills.md page is canonical; the wiki summary is the navigational entry."
+    },
+    {
+      "id": "f5-track-background-task",
+      "query": "track long running background work as task ledger",
+      "issueText": "I have a sub-agent doing a long research run. I need to see its status, audit when it ran, and pick it up later.",
+      "expectedPaths": [
+        "knowledge/external-docs/snapshots/openclaw-docs/automation/tasks.md",
+        "knowledge/external-docs/snapshots/openclaw-docs/automation/index.md"
+      ],
+      "rationale": "Background tasks ledger is the OpenClaw primitive for tracking detached work; index.md is the decision guide."
+    }
+  ]
+}

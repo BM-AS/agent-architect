@@ -1,0 +1,72 @@
+{
+  "sourceId": "openclaw-docs",
+  "fetchedAt": "2026-04-07T23:39:39.263Z",
+  "results": [
+    {
+      "url": "https://docs.openclaw.ai/automation/index.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/automation/index.md",
+      "bytes": 6847,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/automation/cron-jobs.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/automation/cron-jobs.md",
+      "bytes": 15895,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/automation/tasks.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/automation/tasks.md",
+      "bytes": 16076,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/automation/taskflow.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/automation/taskflow.md",
+      "bytes": 4172,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/automation/hooks.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/automation/hooks.md",
+      "bytes": 11181,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/automation/standing-orders.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/automation/standing-orders.md",
+      "bytes": 10047,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/install/docker.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/install/docker.md",
+      "bytes": 15922,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/gateway/multiple-gateways.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/gateway/multiple-gateways.md",
+      "bytes": 4341,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/gateway/configuration.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/gateway/configuration.md",
+      "bytes": 26853,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/skills.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/skills.md",
+      "bytes": 16556,
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/sessions.md",
+      "path": "/private/tmp/blockmind-knowledge/knowledge/external-docs/snapshots/openclaw-docs/sessions.md",
+      "bytes": 3973,
+      "ok": true
+    }
+  ]
+}

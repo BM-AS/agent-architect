@@ -37,6 +37,9 @@ jobs:
           node dist/cli/index.js sources list
           node dist/cli/index.js sources read karpathy-llm-wiki
 
+      - name: Retrieval eval gate (precision@1 ≥ 0.80, recall@5 ≥ 0.80)
+        run: node dist/cli/index.js eval-retrieval
+
       - name: Validate manifest against schema
         run: |
           node --input-type=module - <<'EOF'
