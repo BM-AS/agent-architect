@@ -1,0 +1,21 @@
+{
+  "id": "openclaw-docs",
+  "title": "OpenClaw Documentation",
+  "url": "https://docs.openclaw.ai",
+  "additionalUrls": [
+    "https://github.com/openclaw/openclaw"
+  ],
+  "category": "agent-infrastructure",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "gateway",
+    "skills",
+    "memory",
+    "multi-channel"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/openclaw-docs.md",
+  "rationale": "Provides a concrete model for a self-hosted agent gateway with long-lived memory, skill invocation, and workspace-level operating files."
+}

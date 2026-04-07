@@ -1,0 +1,21 @@
+{
+  "id": "claude-code-memory-docs",
+  "title": "Claude Code Memory & CLAUDE.md",
+  "url": "https://code.claude.com/docs/en/memory",
+  "additionalUrls": [
+    "https://code.claude.com/docs/en/claude-md"
+  ],
+  "category": "agent-customization",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "claude-md",
+    "memory",
+    "rules",
+    "repo-guidance"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/claude-code-memory-docs.md",
+  "rationale": "Documents Claude Code's persistent instruction and memory layers, which matters when the same knowledge repo is meant to guide more than one coding agent."
+}

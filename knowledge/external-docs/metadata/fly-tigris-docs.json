@@ -1,0 +1,22 @@
+{
+  "id": "fly-tigris-docs",
+  "title": "Fly/Tigris Object Storage Documentation",
+  "url": "https://fly.io/docs/tigris/",
+  "additionalUrls": [
+    "https://www.tigrisdata.com/docs/overview/",
+    "https://www.tigrisdata.com/docs/concepts/architecture/"
+  ],
+  "category": "infrastructure",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "s3",
+    "object-storage",
+    "fly-io",
+    "publishing"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/fly-tigris-docs.md",
+  "rationale": "Supplies the storage and mirroring pattern for shipping wiki artifacts or mirrored documentation through globally cached S3-compatible buckets."
+}

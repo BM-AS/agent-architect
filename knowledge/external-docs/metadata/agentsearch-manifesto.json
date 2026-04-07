@@ -1,0 +1,21 @@
+{
+  "id": "agentsearch-manifesto",
+  "title": "AgentSearch Manifesto",
+  "url": "https://www.agentsearch.sh/manifesto",
+  "additionalUrls": [
+    "https://www.agentsearch.sh/"
+  ],
+  "category": "agent-infrastructure",
+  "sourceType": "manifesto",
+  "authorityLevel": "secondary",
+  "tags": [
+    "filesystem",
+    "unix",
+    "docs-ingestion",
+    "agent-interface"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/agentsearch-manifesto.md",
+  "rationale": "Frames code hallucinations as a data freshness problem and argues for filesystem-native access to documentation instead of bespoke tool protocols."
+}

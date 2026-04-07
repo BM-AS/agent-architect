@@ -1,0 +1,173 @@
+{
+  "version": "1.0",
+  "sources": [
+    {
+      "id": "karpathy-llm-wiki",
+      "title": "Karpathy LLM Wiki",
+      "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+      "category": "knowledge-patterns",
+      "sourceType": "gist",
+      "authorityLevel": "primary",
+      "tags": [
+        "llm-wiki",
+        "knowledge-base",
+        "obsidian",
+        "synthesis"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/karpathy-llm-wiki.md",
+      "rationale": "Foundational pattern for the maintained-wiki approach: raw sources feed an LLM-maintained wiki that becomes the durable knowledge layer for later conversations."
+    },
+    {
+      "id": "agentsearch-manifesto",
+      "title": "AgentSearch Manifesto",
+      "url": "https://www.agentsearch.sh/manifesto",
+      "additionalUrls": [
+        "https://www.agentsearch.sh/"
+      ],
+      "category": "agent-infrastructure",
+      "sourceType": "manifesto",
+      "authorityLevel": "secondary",
+      "tags": [
+        "filesystem",
+        "unix",
+        "docs-ingestion",
+        "agent-interface"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/agentsearch-manifesto.md",
+      "rationale": "Frames code hallucinations as a data freshness problem and argues for filesystem-native access to documentation instead of bespoke tool protocols."
+    },
+    {
+      "id": "nia-docs",
+      "title": "Nia Documentation",
+      "url": "https://docs.trynia.ai/welcome",
+      "additionalUrls": [
+        "https://docs.trynia.ai/context-sharing",
+        "https://docs.trynia.ai/local-sync",
+        "https://docs.trynia.ai/plugins/overview"
+      ],
+      "category": "agent-infrastructure",
+      "sourceType": "docs",
+      "authorityLevel": "secondary",
+      "tags": [
+        "context-sharing",
+        "local-sync",
+        "plugins",
+        "agent-skill"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/nia-docs.md",
+      "rationale": "Shows how to give agents current project and documentation context through local sync, shared context, and installable agent-facing integrations."
+    },
+    {
+      "id": "openclaw-docs",
+      "title": "OpenClaw Documentation",
+      "url": "https://docs.openclaw.ai",
+      "additionalUrls": [
+        "https://github.com/openclaw/openclaw"
+      ],
+      "category": "agent-infrastructure",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "gateway",
+        "skills",
+        "memory",
+        "multi-channel"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/openclaw-docs.md",
+      "rationale": "Provides a concrete model for a self-hosted agent gateway with long-lived memory, skill invocation, and workspace-level operating files."
+    },
+    {
+      "id": "fly-tigris-docs",
+      "title": "Fly/Tigris Object Storage Documentation",
+      "url": "https://fly.io/docs/tigris/",
+      "additionalUrls": [
+        "https://www.tigrisdata.com/docs/overview/",
+        "https://www.tigrisdata.com/docs/concepts/architecture/"
+      ],
+      "category": "infrastructure",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "s3",
+        "object-storage",
+        "fly-io",
+        "publishing"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/fly-tigris-docs.md",
+      "rationale": "Supplies the storage and mirroring pattern for shipping wiki artifacts or mirrored documentation through globally cached S3-compatible buckets."
+    },
+    {
+      "id": "codex-customization-docs",
+      "title": "OpenAI Codex Customization",
+      "url": "https://openai.com/codex",
+      "additionalUrls": [
+        "https://platform.openai.com/docs/guides/codex"
+      ],
+      "category": "agent-customization",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "codex",
+        "agents-md",
+        "repo-guidance",
+        "skills"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/codex-customization-docs.md",
+      "rationale": "Defines how Codex consumes persistent repo guidance, environment setup, and structured workflows so the repository stays agent-friendly over time."
+    },
+    {
+      "id": "claude-code-memory-docs",
+      "title": "Claude Code Memory & CLAUDE.md",
+      "url": "https://code.claude.com/docs/en/memory",
+      "additionalUrls": [
+        "https://code.claude.com/docs/en/claude-md"
+      ],
+      "category": "agent-customization",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "claude-md",
+        "memory",
+        "rules",
+        "repo-guidance"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/claude-code-memory-docs.md",
+      "rationale": "Documents Claude Code's persistent instruction and memory layers, which matters when the same knowledge repo is meant to guide more than one coding agent."
+    },
+    {
+      "id": "fumadocs-docs",
+      "title": "Fumadocs",
+      "url": "https://fumadocs.dev",
+      "additionalUrls": [
+        "https://fumadocs.dev/docs/getting-started"
+      ],
+      "category": "docs-tooling",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "docs-site",
+        "mdx",
+        "react",
+        "obsidian"
+      ],
+      "addedAt": "2026-04-07T00:00:00.000Z",
+      "reviewedAt": "2026-04-07T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/fumadocs-docs.md",
+      "rationale": "Offers the docs-site layer for turning markdown knowledge artifacts into a browsable site without abandoning a plain-files content model."
+    }
+  ]
+}

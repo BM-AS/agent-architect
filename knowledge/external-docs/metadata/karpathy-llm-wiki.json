@@ -1,0 +1,18 @@
+{
+  "id": "karpathy-llm-wiki",
+  "title": "Karpathy LLM Wiki",
+  "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+  "category": "knowledge-patterns",
+  "sourceType": "gist",
+  "authorityLevel": "primary",
+  "tags": [
+    "llm-wiki",
+    "knowledge-base",
+    "obsidian",
+    "synthesis"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/karpathy-llm-wiki.md",
+  "rationale": "Foundational pattern for the maintained-wiki approach: raw sources feed an LLM-maintained wiki that becomes the durable knowledge layer for later conversations."
+}

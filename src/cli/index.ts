@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+import { Command } from "commander";
+
+import { registerSourcesListCommand } from "./commands/sources-list.js";
+import { registerSourcesReadCommand } from "./commands/sources-read.js";
+
+async function main(): Promise<void> {
+  const program = new Command();
+  program
+    .name("kb")
+    .description("Knowledge base CLI for curated external references")
+    .version("1.0.0");
+
+  const sources = program.command("sources").description("Work with curated external sources");
+  registerSourcesListCommand(sources);
+  registerSourcesReadCommand(sources);
+
+  await program.parseAsync(process.argv);
+}
+
+main().catch((error: unknown) => {
+  const message = error instanceof Error ? error.message : String(error);
+  process.stderr.write(`${message}\n`);
+  process.exitCode = 1;
+});

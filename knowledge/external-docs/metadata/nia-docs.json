@@ -1,0 +1,23 @@
+{
+  "id": "nia-docs",
+  "title": "Nia Documentation",
+  "url": "https://docs.trynia.ai/welcome",
+  "additionalUrls": [
+    "https://docs.trynia.ai/context-sharing",
+    "https://docs.trynia.ai/local-sync",
+    "https://docs.trynia.ai/plugins/overview"
+  ],
+  "category": "agent-infrastructure",
+  "sourceType": "docs",
+  "authorityLevel": "secondary",
+  "tags": [
+    "context-sharing",
+    "local-sync",
+    "plugins",
+    "agent-skill"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/nia-docs.md",
+  "rationale": "Shows how to give agents current project and documentation context through local sync, shared context, and installable agent-facing integrations."
+}

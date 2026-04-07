@@ -1,0 +1,21 @@
+{
+  "id": "fumadocs-docs",
+  "title": "Fumadocs",
+  "url": "https://fumadocs.dev",
+  "additionalUrls": [
+    "https://fumadocs.dev/docs/getting-started"
+  ],
+  "category": "docs-tooling",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "docs-site",
+    "mdx",
+    "react",
+    "obsidian"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/fumadocs-docs.md",
+  "rationale": "Offers the docs-site layer for turning markdown knowledge artifacts into a browsable site without abandoning a plain-files content model."
+}

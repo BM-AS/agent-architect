@@ -1,0 +1,21 @@
+{
+  "id": "codex-customization-docs",
+  "title": "OpenAI Codex Customization",
+  "url": "https://openai.com/codex",
+  "additionalUrls": [
+    "https://platform.openai.com/docs/guides/codex"
+  ],
+  "category": "agent-customization",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "codex",
+    "agents-md",
+    "repo-guidance",
+    "skills"
+  ],
+  "addedAt": "2026-04-07T00:00:00.000Z",
+  "reviewedAt": "2026-04-07T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/codex-customization-docs.md",
+  "rationale": "Defines how Codex consumes persistent repo guidance, environment setup, and structured workflows so the repository stays agent-friendly over time."
+}
