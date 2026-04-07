@@ -59,6 +59,12 @@ scripts/
 - `bun run sources:read codex-customization-docs`
 - `./scripts/kb.sh sources list`
 
+## Agent Architect Skill
+
+The primary user-facing deliverable is `skills/agent-architect/`. This is an installable skill published to ClawHub and skills.sh under @blockmind. It bundles copies of wiki summaries in `skills/agent-architect/references/` for standalone use.
+
+When adding a new source, also copy the summary to `skills/agent-architect/references/`. Keep the skill's references in sync with `knowledge/wiki/summaries/`.
+
 ## Guardrails
 
 - Never modify raw source content to make it easier to summarize; preserve the original and capture interpretation in the wiki layer.

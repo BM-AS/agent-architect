@@ -34,6 +34,12 @@ This repository is a standalone knowledge base for curated external references. 
 - `bun run sources:read karpathy-llm-wiki`
 - `./scripts/kb.sh sources read karpathy-llm-wiki`
 
+## Agent Architect Skill
+
+The primary user-facing deliverable is `skills/agent-architect/`. This is an installable skill that turns any coding agent into an architecture consultant. It bundles copies of the wiki summaries in `skills/agent-architect/references/` so it works standalone when installed via ClawHub or skills.sh.
+
+When adding a new source, copy the summary to `skills/agent-architect/references/` as well. Keep the skill's reference copies in sync with `knowledge/wiki/summaries/`.
+
 ## Guardrails
 
 - Never modify files in `knowledge/raw/` or mirrored external source content in a way that rewrites the original source.
