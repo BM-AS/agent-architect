@@ -1,4 +1,4 @@
-# Agent Wiki
+# Agent Architect
 
 This wiki is the maintained knowledge layer for the repository. It sits between immutable source material in `knowledge/raw/` or `knowledge/external-docs/` and any future agent or human conversation that needs to reuse the compiled understanding.
 
