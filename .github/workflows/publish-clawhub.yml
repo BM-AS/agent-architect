@@ -26,7 +26,7 @@ jobs:
         run: |
           npx clawhub@latest login --token "$CLAWHUB_TOKEN" --no-browser
           npx clawhub@latest publish skills/agent-architect \
-            --slug @blockmind/agent-architect \
+            --slug blockmind-agent-architect \
             --name "Agent Architect" \
             --version "${{ steps.version.outputs.version }}" \
             --changelog "Release v${{ steps.version.outputs.version }}"
