@@ -17,8 +17,30 @@ export function getManifestPath(): string {
 }
 
 export async function loadManifest(): Promise<SourceManifest> {
-  const manifestRaw = await readFile(MANIFEST_PATH, "utf8");
-  const parsed = JSON.parse(manifestRaw) as unknown;
+  let manifestRaw: string;
+
+  try {
+    manifestRaw = await readFile(MANIFEST_PATH, "utf8");
+  } catch (error: unknown) {
+    if (isErrorWithCode(error) && error.code === "ENOENT") {
+      throw new Error(`Manifest not found at ${MANIFEST_PATH}`);
+    }
+
+    throw new Error(`Failed to read manifest at ${MANIFEST_PATH}`);
+  }
+
+  let parsed: unknown;
+
+  try {
+    parsed = JSON.parse(manifestRaw) as unknown;
+  } catch (error: unknown) {
+    if (error instanceof SyntaxError) {
+      throw new Error(`Manifest contains invalid JSON at ${MANIFEST_PATH}`);
+    }
+
+    throw error;
+  }
+
   const manifest = SourceManifestSchema.safeParse(parsed);
 
   if (!manifest.success) {
@@ -44,9 +66,17 @@ export async function readSummaryPage(summaryPagePath: string): Promise<string |
 
   try {
     return await readFile(absolutePath, "utf8");
-  } catch {
-    return null;
+  } catch (error: unknown) {
+    if (isErrorWithCode(error) && error.code === "ENOENT") {
+      return null;
+    }
+
+    throw error;
   }
+}
+
+function isErrorWithCode(error: unknown): error is Error & { code: string } {
+  return error instanceof Error && "code" in error && typeof error.code === "string";
 }
 
 export function isSourceStale(source: SourceMetadata, now: Date = new Date()): boolean {

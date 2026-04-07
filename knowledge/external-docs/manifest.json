@@ -132,7 +132,7 @@
       "title": "Claude Code Memory & CLAUDE.md",
       "url": "https://code.claude.com/docs/en/memory",
       "additionalUrls": [
-        "https://code.claude.com/docs/en/claude-md"
+        "https://docs.anthropic.com/en/docs/claude-code/memory"
       ],
       "category": "agent-customization",
       "sourceType": "docs",

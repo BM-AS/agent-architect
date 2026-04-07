@@ -3,7 +3,7 @@
 ## Source
 
 - Canonical URL: https://code.claude.com/docs/en/memory
-- Related URL: https://code.claude.com/docs/en/claude-md
+- Related URL: https://docs.anthropic.com/en/docs/claude-code/memory
 
 ## Summary
 

@@ -4,6 +4,9 @@
   "private": true,
   "description": "LLM-maintained knowledge base with curated external references and a filesystem-native CLI.",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "bin": {
     "kb": "./dist/cli/index.js"
   },
