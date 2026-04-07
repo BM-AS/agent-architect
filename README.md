@@ -1,6 +1,6 @@
-# Blockmind Knowledge
+# Agent Wiki
 
-Blockmind Knowledge is a standalone, LLM-maintained knowledge base with a first-class external references layer. It follows the Karpathy-style pattern of keeping raw inputs separate from a maintained wiki, then using that wiki as the durable substrate for future agent and human conversations.
+Agent Wiki is a standalone, LLM-maintained knowledge base with a first-class external references layer. It follows the Karpathy-style pattern of keeping raw inputs separate from a maintained wiki, then using that wiki as the durable substrate for future agent and human conversations.
 
 ## Quick Start
 
