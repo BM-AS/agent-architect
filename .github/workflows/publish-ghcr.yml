@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: "22"
           registry-url: "https://npm.pkg.github.com"
-          scope: "@blockmind"
+          scope: "@bm-as"
 
       - name: Verify tag matches package version
         run: |
@@ -45,7 +45,7 @@ jobs:
           # Temporarily scope the package for GHCR
           node -e "
             const pkg = require('./package.json');
-            pkg.name = '@blockmind/agent-architect';
+            pkg.name = '@bm-as/agent-architect';
             pkg.publishConfig = { registry: 'https://npm.pkg.github.com' };
             require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
           "

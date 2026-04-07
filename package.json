@@ -1,6 +1,6 @@
 {
-  "name": "agent-architect",
-  "version": "1.0.1",
+  "name": "@blockmind/agent-architect",
+  "version": "1.0.2",
   "description": "LLM-maintained knowledge base with curated external references and a filesystem-native CLI.",
   "type": "module",
   "engines": {

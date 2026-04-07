@@ -45,8 +45,8 @@ jobs:
       - name: Publish to npm
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          if npm view "agent-architect@${VERSION}" version 2>&1; then
-            echo "agent-architect@${VERSION} already published, skipping"
+          if npm view "@blockmind/agent-architect@${VERSION}" version 2>&1; then
+            echo "@blockmind/agent-architect@${VERSION} already published, skipping"
           else
             npm publish --access public
           fi
