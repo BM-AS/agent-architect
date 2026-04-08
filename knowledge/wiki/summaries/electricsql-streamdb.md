@@ -13,13 +13,15 @@ The key abstraction is a schema-driven state model. A developer defines entity t
 
 For product-agent architecture, StreamDB is attractive because it gives the session-state plane a more ergonomic shape than raw event bytes. If a team wants the product shell and a backstage runtime to communicate through shared durable state, StreamDB is one of the clearest early attempts to make that state plane typed, queryable, and UI-friendly. It also connects directly to the March 2026 durable transport adapters for AI SDK and TanStack AI, which is why it appears so often in discussions of durable AI chat.
 
-The limiting factor is maturity and dependency stack. StreamDB launched on March 26, 2026, so it is extremely new. It also depends conceptually on Durable Streams and operationally on TanStack DB, whose server-rendering story was still unresolved at the time. That means StreamDB is a strong source for an emerging pattern, but not a conservative production default. The lasting value in this repo is the architecture it points toward: durable event history plus typed reactive projections, with runtime choice kept separate from state ownership.
+The limiting factor is maturity, not architecture. StreamDB launched March 26, 2026 — very new. The architecture it points toward (durable event history + typed reactive projections + runtime kept separate from state ownership) is sound. For teams evaluating StreamDB as the state plane in Architecture B, the adoption decision should be driven by team risk tolerance, not SSR concerns.
+
+**On SSR:** StreamDB depends on TanStack DB, whose SSR story is still being designed. For client-initiated dashboard AI products — where a human prompt from the browser is the primary interaction — SSR is not the relevant constraint. The relevant architecture is: client polls or SSE-subscribes to the stream, server renders the initial shell, AI responses stream in via the transport. If that fits the product model, the SSR gap is not a practical blocker.
 
 ## Implications
 
 - StreamDB is a useful reference for how a session/event stream can become a reactive state plane instead of a raw log.
 - It is promising for agent products with messages, presence, approvals, and shared state projections.
-- Its current viability is constrained by its own newness and by TanStack DB's unresolved SSR story.
+- The architecture is sound; maturity is the only real question mark.
 
 ## Related Sources
 

@@ -1,30 +1,36 @@
-# Product Agent Future Experiments
+# Product Agent Experiments
 
-This page records the experiments worth revisiting later, once the relevant technologies mature further or a product team's constraints change.
+This page records experiments worth running — some now, some when conditions change. The distinction is explicit so the page is useful rather than a hedge.
 
 Primary inputs: [Rivet agentOS](../summaries/rivet-agentos.md), [Rivet Workflows](../summaries/rivet-workflows.md), [ElectricSQL StreamDB](../summaries/electricsql-streamdb.md), [TanStack DB](../summaries/tanstack-db.md), [Mastra Framework](../summaries/mastra-framework.md).
 
-## 1. Rivet agentOS When Stable
+## Worth Running Now
 
-Revisit [Rivet agentOS](../summaries/rivet-agentos.md) once it exits preview, supports multiple clearly documented agents, and has production case studies for multi-user systems. The experiment is not "replace the whole product shell." The right test is whether agentOS has become a reliable backstage-worker runtime for coding-agent-shaped jobs inside the recommended architecture.
+### StreamDB as State Plane (Architecture B)
 
-## 2. StreamDB Once TanStack DB SSR Resolves
+[ElectricSQL StreamDB](../summaries/electricsql-streamdb.md) is worth piloting as the state plane in a split architecture now if:
 
-Revisit [ElectricSQL StreamDB](../summaries/electricsql-streamdb.md) once [TanStack DB](../summaries/tanstack-db.md) has a stable SSR story and at least one serious product case study using the full state-plane stack in a server-rendered web app. The experiment should test whether durable session state plus reactive projections materially improves multi-device continuity and support/debuggability over simpler Postgres-backed persistence.
+- The product is client-initiated (human prompt from browser — not SSR-dependent)
+- The team wants typed reactive collections over raw event streams
+- Durable session persistence and multi-tab/multi-device continuity are real requirements
 
-## 3. TanStack AI When It Reaches v1-Level Stability
+SSR is not a blocker for dashboard AI products. The relevant question is whether StreamDB's reactive query model improves observability and debuggability over Postgres-backed session persistence.
 
-This repo does not currently include TanStack AI as a seeded source, but it remains worth watching because it could eventually challenge AI SDK's default position for framework-agnostic teams. Revisit it once the API is stable, the docs are deep enough for production use, and the tool-and-transport story has settled.
+### Rivet Actors + Workflows as Isolation Layer
 
-## 4. CopilotKit + Mastra
+If the split thresholds in [Recommended Main Product-Agent Architecture](recommended-main-product-agent-architecture.md) apply — multi-tenant isolation at infrastructure level, or agent data model diverging significantly from product data model — [Rivet Actors](../summaries/rivet-actors.md) and [Rivet Workflows](../summaries/rivet-workflows.md) are the strongest candidates for that role. Actors are production-viable today.
 
-Revisit [Mastra Framework](../summaries/mastra-framework.md) paired with CopilotKit when the product needs a more interactive agent UX than AI SDK alone provides and memory or multi-agent orchestration has become central. The interesting question is whether Mastra's framework support plus a richer interaction layer can provide a better product shell without forcing a premature split runtime.
+## Worth Revisiting Later
 
-## 5. Rivet Actors + Workflows for Hard Isolation Cases
+### Rivet agentOS as Backstage Worker
 
-If the product eventually crosses the split thresholds documented in [Recommended Main Product-Agent Architecture](recommended-main-product-agent-architecture.md), revisit [Rivet Actors](../summaries/rivet-actors.md) and [Rivet Workflows](../summaries/rivet-workflows.md) as one of the strongest candidates for infrastructure-level session or tenant isolation.
+[Rivet agentOS](../summaries/rivet-agentos.md) is the right experiment once: more than one agent is available and documented (Pi is the only one as of April 2026), and the product needs sandboxed execution for specific job types. The architecture is worth running as a backstage worker even during preview — Pi inside agentOS as a tool invoked from the main agent is a legitimate pattern today.
 
-## Reading This Page Correctly
+### Mastra + CopilotKit
 
-These are not backdoor recommendations. They are explicit "come back later" items. The purpose of the page is to preserve curiosity without turning preview-stage or unresolved stacks into default advice before they have earned it.
+Revisit [Mastra Framework](../summaries/mastra-framework.md) paired with CopilotKit when the product needs richer interaction primitives than AI SDK provides, or when multi-agent orchestration becomes central rather than incidental.
+
+### TanStack AI v1
+
+Worth watching. Could eventually challenge AI SDK's default position for framework-agnostic teams. Revisit once the API is stable and docs are production-grade.
 

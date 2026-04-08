@@ -1,41 +1,35 @@
 # AgentOS / Rivet for Product Agents
 
-This page evaluates the Rivet stack specifically for product-agent architecture, separating what is production-credible now from what is still preview or beta.
+This page evaluates the Rivet stack for product-agent architecture. The maturity picture is mixed by design — the foundation is production-credible while the newest layers are early-stage but architecturally sound enough to bet on.
 
 Primary inputs: [Rivet Actors](../summaries/rivet-actors.md), [Rivet Workflows](../summaries/rivet-workflows.md), [Rivet agentOS](../summaries/rivet-agentos.md), [ElectricSQL Durable Streams](../summaries/electricsql-durable-streams.md).
 
-## Short Version
+## The Stance on agentOS
 
-Rivet is not one maturity level. The foundation and the newest layers should not be judged the same way.
+agentOS launched April 4, 2026. It is new. The architecture it enables — WebAssembly + V8 isolate sandbox, deny-by-default security, host tools as CLI commands inside the VM, ~6ms cold start, 32x cheaper than sandbox providers — is a genuinely impressive execution model. For teams comfortable with early-adopter risk, the underlying architecture is worth betting on despite the API being fresh.
 
-- **Production-credible now:** Rivet Actors
-- **Promising but newer:** Rivet Workflows
-- **Preview only:** agentOS and Pi as of April 8, 2026
+The preview status means: expect API changes, limited agent options (Pi is the only one available as of this writing, with Claude Code/Codex/Amp "coming soon"), and a smaller community to draw on. It does not mean the architecture is unsound.
 
-That distinction matters because the wrong summary is "Rivet is too new" and the equally wrong summary is "Rivet is ready end to end." The more accurate framing is: the foundation is real, while the newest product-agent-specific penthouse is still under construction.
+**The right question is not "is agentOS old enough?" — it is "is the execution model right for my product?"** For dashboard-style AI products where the agent runs client-initiated jobs in a sandboxed environment, the answer may be yes sooner than the maturity date suggests.
 
 ## What Is Viable Today
 
-[Rivet Actors](../summaries/rivet-actors.md) are the part of Rivet that already functions as a serious backend reference. They give a product durable addressable runtimes, real-time connectivity, and a clean per-tenant or per-session isolation model. If a team already knows it needs actor boundaries, realtime events, and infrastructure-level session isolation, Actors are a credible choice today.
+[Rivet Actors](../summaries/rivet-actors.md) are the production-credible foundation. Durable addressable runtimes, real-time connectivity, per-tenant or per-session isolation. If you need actor boundaries and infrastructure-level session isolation, Actors are ready today.
 
-Rivet Workflows deserve cautious interest rather than blanket trust. The integration story is elegant because workflow, queue, state, and events live together, but the workflow layer only launched on February 24, 2026. That is enough to study and perhaps pilot, but not enough to make it the default recommendation for readers who need well-proven durability today.
+[Rivet Workflows](../summaries/rivet-workflows.md) (launched February 24, 2026) co-locate workflow, queue, state, and events inside the Actor. Simpler than Temporal, more integrated than Inngest. Still early but the model is clean.
 
-## What Is Still Preview
+## Pi's Role
 
-[Rivet agentOS](../summaries/rivet-agentos.md) launched on April 4, 2026. That is too new for "main recommendation" status in a durable KB. The design is genuinely strong for coding-agent-shaped execution, but product recommendations should not ask readers to bet their core architecture on a four-day-old preview API.
+Pi is a coding agent runtime inside agentOS. It is the wrong shape for the main conversational product-agent abstraction — the primitives (file editing, shell execution, long-running autonomy) don't map to what a portfolio tracker or dashboard AI product needs at the conversation surface. Pi is the right fit as a **backstage worker**: a dedicated job runner for multi-step research or analysis tasks, invoked as a tool from the main agent, returning structured results. See [Pi as Backstage Worker Pattern](pi-as-backstage-worker-pattern.md).
 
-Pi sits inside the same caution zone. It may become a valuable backstage worker, but it should not be treated as the main conversational abstraction for a product agent yet. See [Pi as Backstage Worker Pattern](pi-as-backstage-worker-pattern.md).
+## When to Use Rivet Now
 
-## When to Revisit
+Consider the Rivet stack (Actors + agentOS) if:
 
-Revisit the Rivet stack for a primary recommendation when most of these are true:
+- You need infrastructure-level per-tenant or per-session isolation
+- The agent's work is sandboxable as CLI-style commands (code execution, file manipulation, shell runs)
+- You want to avoid the complexity of a separate event-stream infrastructure by using Actors as the state + communication layer
+- You are comfortable with API instability in exchange for influence over the platform's direction
 
-- agentOS has exited preview and stabilized its API
-- more than one supported agent is clearly available and documented
-- Rivet Workflows have a longer production track record
-- there are credible public examples of multi-user product deployments, not just demos or internal tools
-
-## Legitimate Early-Adopter Position
-
-There is still a valid early-adopter argument. Teams that want maximum exposure to Rivet's direction may accept the risk because the underlying actor foundation is already credible. That is a legitimate risk position. It is simply not the same thing as a safe default for a broad audience.
+Consider sticking with the recommended Architecture A (Inngest AgentKit + AI SDK UI) if you need stability, a large community, and production-proven defaults today.
 

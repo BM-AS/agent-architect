@@ -82,7 +82,7 @@ Move from A to B or C when ANY of these are true:
 
 ## What This Recommendation Does NOT Say
 
-- It does not say Rivet/Pi/agentOS is bad technology. The correct framing: **Rivet Actors are production-viable (16 months old, Apache 2.0); agentOS + Pi are the "penthouse under construction" on that foundation.** agentOS is 4 days old as of this writing, Pi has one agent, and the API is unstable. The Rivet ecosystem is worth watching closely — revisit in 3-6 months. See [AgentOS / Rivet for Product Agents](agentos-rivet-for-product-agents.md).
+- It does not say Rivet/Pi/agentOS is bad technology. The correct framing: **Rivet Actors are production-viable; agentOS is early but architecturally sound enough to bet on.** The WebAssembly isolate model, deny-by-default security, and cost profile are impressive. Teams comfortable with early-adopter risk should evaluate it directly rather than treating the 4-day-old launch date as a disqualifier. See [AgentOS / Rivet for Product Agents](agentos-rivet-for-product-agents.md).
 - It does not say the split pattern is wrong. It says the split is overhead for most early-stage product-agent teams.
 - It does not say OpenClaw is unsuitable for all products. It's unsuitable as a multi-user product runtime. It's excellent for internal orchestration. See [OpenClaw for Product Agents](openclaw-for-product-agents.md).
 - It does not say you must avoid alpha/beta packages. Philip has evaluated this stack and is comfortable with beta components if the architecture is sound. Maturity is a consideration, not a blocker. The stack recommendation stands on architectural shape, not version numbers.
@@ -137,6 +137,6 @@ This recommendation is grounded in research conducted 2026-04-08 across official
 - [Rivet AgentOS](../summaries/rivet-agentos.md) — preview, promising, not ready
 - [Rivet Actors](../summaries/rivet-actors.md) — production-viable stateful backend
 - [ElectricSQL Durable Streams](../summaries/electricsql-durable-streams.md) — durable event streaming
-- [ElectricSQL StreamDB](../summaries/electricsql-streamdb.md) — reactive typed DB over streams. **SSR blocker:** StreamDB depends on TanStack DB, whose SSR story is still being designed. It cannot be used in a server-rendered Vercel app today. Watch this space — it's the right architecture, just not ready for SSR yet.
+- [ElectricSQL StreamDB](../summaries/electricsql-streamdb.md) — reactive typed DB over streams. The architecture is sound; maturity is the only real concern. For client-initiated dashboard AI products, SSR is not the relevant constraint. Worth piloting as the state plane in Architecture B.
 - [TanStack DB](../summaries/tanstack-db.md) — beta client-side reactive store
 - [Mastra Framework](../summaries/mastra-framework.md) — TS-native agent framework
