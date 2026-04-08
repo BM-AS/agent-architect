@@ -41,3 +41,11 @@ Most relevant sources: [Fumadocs](../summaries/fumadocs-docs.md), [Karpathy LLM 
 Read first: Start with Fumadocs for the framework and content pipeline. Then revisit Karpathy to ensure the docs site serves the maintained wiki rather than replacing it. Claude's docs are useful here because they reinforce the value of concise, well-scoped markdown files that agents can load reliably at session start.
 
 How they relate: Fumadocs is the rendering layer, Karpathy is the knowledge architecture behind the content, and Claude's guidance is a reminder that markdown structure is not only for humans but also for the agents that consume the repository.
+
+## Product-Agent Architecture
+
+Most relevant sources: [Product Agent Architecture Decision Guide](product-agent-architecture-decision-guide.md), [Compare Product Agent Runtime Options](compare-product-agent-runtime-options.md), [Vercel AI SDK v5](../summaries/vercel-ai-sdk-v5.md), [Inngest AgentKit](../summaries/inngest-agentkit.md), [Mastra Framework](../summaries/mastra-framework.md), [Rivet Actors](../summaries/rivet-actors.md), [Rivet Workflows](../summaries/rivet-workflows.md), [Rivet agentOS](../summaries/rivet-agentos.md), [ElectricSQL Durable Streams](../summaries/electricsql-durable-streams.md), [ElectricSQL StreamDB](../summaries/electricsql-streamdb.md)
+
+Read first: Start with the [decision guide](product-agent-architecture-decision-guide.md) — it presents the three architecture shapes with honest tradeoffs and the decision variables that separate them. The [comparison matrix](compare-product-agent-runtime-options.md) is the next stop for a side-by-side evaluation of runtime candidates. Read AI SDK v5 and Inngest AgentKit for the product-shell stack. Read Mastra when the question shifts toward a richer TypeScript framework. Read Rivet Actors and agentOS when evaluating the actor-runtime path. Read Durable Streams and StreamDB once session continuity and runtime/state separation are part of the conversation.
+
+How they relate: the decision guide frames the choice between three architecture shapes, the comparison matrix evaluates runtime candidates within each shape, and the supporting reference pages cover the conceptual foundations (runtime vs. session state boundary), specific technology assessments (Rivet, OpenClaw, Pi), and open questions (memory, observability, evals).

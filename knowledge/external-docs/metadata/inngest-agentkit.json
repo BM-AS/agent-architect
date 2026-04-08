@@ -1,0 +1,23 @@
+{
+  "id": "inngest-agentkit",
+  "title": "Inngest AgentKit",
+  "url": "https://agentkit.inngest.com/",
+  "additionalUrls": [
+    "https://agentkit.inngest.com/reference/use-agent",
+    "https://www.inngest.com/changelog/2025-09-24-agentkit-use-agent"
+  ],
+  "category": "agent-frameworks",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "durability",
+    "workflows",
+    "streaming",
+    "use-agent",
+    "typescript"
+  ],
+  "addedAt": "2026-04-08T00:00:00.000Z",
+  "reviewedAt": "2026-04-08T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/inngest-agentkit.md",
+  "rationale": "Supplies the durable execution harness recommendation for TypeScript teams that want retriable model and tool steps without inventing a separate agent platform."
+}

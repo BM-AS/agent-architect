@@ -1,0 +1,22 @@
+{
+  "id": "electricsql-streamdb",
+  "title": "ElectricSQL StreamDB",
+  "url": "https://durablestreams.com/stream-db",
+  "additionalUrls": [
+    "https://electric-sql.com/blog/2026/03/26/stream-db"
+  ],
+  "category": "state-sync",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "reactive-state",
+    "durable-streams",
+    "tanstack-db",
+    "session-state",
+    "electric"
+  ],
+  "addedAt": "2026-04-08T00:00:00.000Z",
+  "reviewedAt": "2026-04-08T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/electricsql-streamdb.md",
+  "rationale": "Shows how a durable event stream can become typed reactive session state, which is central to the state-plane architecture discussed in this repo."
+}

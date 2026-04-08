@@ -168,6 +168,212 @@
       "reviewedAt": "2026-04-07T00:00:00.000Z",
       "summaryPagePath": "knowledge/wiki/summaries/fumadocs-docs.md",
       "rationale": "Offers the docs-site layer for turning markdown knowledge artifacts into a browsable site without abandoning a plain-files content model."
+    },
+    {
+      "id": "rivet-agentos",
+      "title": "Rivet agentOS",
+      "url": "https://rivet.dev/docs/agent-os/",
+      "additionalUrls": [
+        "https://rivet.dev/changelog/2026-04-04-introducing-agentos/",
+        "https://github.com/rivet-dev/agent-os"
+      ],
+      "category": "agent-runtime",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "rivet",
+        "sandbox",
+        "coding-agent",
+        "runtime",
+        "preview"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/rivet-agentos.md",
+      "rationale": "Captures Rivet's preview coding-agent runtime so the repo can distinguish sandboxed backstage-worker execution from the user-facing product shell."
+    },
+    {
+      "id": "rivet-actors",
+      "title": "Rivet Actors",
+      "url": "https://www.rivet.dev/docs/actors/",
+      "additionalUrls": [
+        "https://www.rivet.dev/docs/connect/vercel/",
+        "https://github.com/rivet-dev/rivet"
+      ],
+      "category": "agent-runtime",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "rivet",
+        "actors",
+        "realtime",
+        "stateful-runtime",
+        "isolation"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/rivet-actors.md",
+      "rationale": "Provides the mature actor-based backend reference in the Rivet stack for evaluating stateful, real-time, per-tenant runtimes."
+    },
+    {
+      "id": "rivet-workflows",
+      "title": "Rivet Workflows",
+      "url": "https://www.rivet.dev/docs/actors/workflows/",
+      "additionalUrls": [
+        "https://rivet.dev/changelog/2026-02-24-introducing-rivet-workflows/"
+      ],
+      "category": "agent-runtime",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "rivet",
+        "workflows",
+        "durable-execution",
+        "actors",
+        "beta"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/rivet-workflows.md",
+      "rationale": "Documents Rivet's actor-native workflow model so the repo can compare co-located durable execution against Inngest, Temporal, and service-split patterns."
+    },
+    {
+      "id": "electricsql-durable-streams",
+      "title": "ElectricSQL Durable Streams",
+      "url": "https://durablestreams.com/",
+      "additionalUrls": [
+        "https://electric-sql.com/primitives/durable-streams",
+        "https://electric-sql.com/blog/2025/12/23/durable-streams-0.1.0"
+      ],
+      "category": "state-sync",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "streams",
+        "durability",
+        "session-state",
+        "resume",
+        "electric"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/electricsql-durable-streams.md",
+      "rationale": "Introduces the durable session-stream pattern that separates replayable product state from whichever runtime happens to produce events."
+    },
+    {
+      "id": "electricsql-streamdb",
+      "title": "ElectricSQL StreamDB",
+      "url": "https://durablestreams.com/stream-db",
+      "additionalUrls": [
+        "https://electric-sql.com/blog/2026/03/26/stream-db"
+      ],
+      "category": "state-sync",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "reactive-state",
+        "durable-streams",
+        "tanstack-db",
+        "session-state",
+        "electric"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/electricsql-streamdb.md",
+      "rationale": "Shows how a durable event stream can become typed reactive session state, which is central to the state-plane architecture discussed in this repo."
+    },
+    {
+      "id": "tanstack-db",
+      "title": "TanStack DB",
+      "url": "https://tanstack.com/db/latest",
+      "additionalUrls": [
+        "https://tanstack.com/db/latest/docs/overview",
+        "https://tanstack.com/db/latest/docs/guides/ssr"
+      ],
+      "category": "state-sync",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "reactive-db",
+        "live-queries",
+        "optimistic-ui",
+        "sync",
+        "beta"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/tanstack-db.md",
+      "rationale": "Provides the reactive data-layer context behind StreamDB and other client-facing session-state patterns, while highlighting current SSR and maturity constraints."
+    },
+    {
+      "id": "vercel-ai-sdk-v5",
+      "title": "Vercel AI SDK v5",
+      "url": "https://ai-sdk.dev/v5/docs",
+      "additionalUrls": [
+        "https://ai-sdk.dev/docs/ai-sdk-ui/transport",
+        "https://ai-sdk.dev/docs/ai-sdk-ui/chatbot-resume-streams",
+        "https://ai-sdk.dev/docs/ai-sdk-ui/storing-messages"
+      ],
+      "category": "agent-ui",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "chat-ui",
+        "tool-rendering",
+        "streaming",
+        "transport",
+        "typescript"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/vercel-ai-sdk-v5.md",
+      "rationale": "Defines the most production-ready product-shell abstraction in the current source set for streaming chat, tool rendering, and resumable message flows."
+    },
+    {
+      "id": "inngest-agentkit",
+      "title": "Inngest AgentKit",
+      "url": "https://agentkit.inngest.com/",
+      "additionalUrls": [
+        "https://agentkit.inngest.com/reference/use-agent",
+        "https://www.inngest.com/changelog/2025-09-24-agentkit-use-agent"
+      ],
+      "category": "agent-frameworks",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "durability",
+        "workflows",
+        "streaming",
+        "use-agent",
+        "typescript"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/inngest-agentkit.md",
+      "rationale": "Supplies the durable execution harness recommendation for TypeScript teams that want retriable model and tool steps without inventing a separate agent platform."
+    },
+    {
+      "id": "mastra-framework",
+      "title": "Mastra Framework",
+      "url": "https://mastra.ai/",
+      "additionalUrls": [
+        "https://mastra.ai/en/reference/agents/agent",
+        "https://mastra.ai/blog/changelog-2026-01-20"
+      ],
+      "category": "agent-frameworks",
+      "sourceType": "docs",
+      "authorityLevel": "primary",
+      "tags": [
+        "framework",
+        "memory",
+        "workflows",
+        "evals",
+        "typescript"
+      ],
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "reviewedAt": "2026-04-08T00:00:00.000Z",
+      "summaryPagePath": "knowledge/wiki/summaries/mastra-framework.md",
+      "rationale": "Adds the strongest TypeScript-native framework reference for teams that need more built-in memory, orchestration, and evaluation support than the default stack provides."
     }
   ]
 }

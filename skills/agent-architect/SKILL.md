@@ -20,22 +20,42 @@ Walk through these questions **one at a time**. Acknowledge each answer with a b
 
 1. **What are you building?** Domain, purpose, who uses it.
 2. **What surfaces?** Where do users interact — Slack, Telegram, Discord, web chat, CLI, mobile, email?
-3. **Single or multi-agent?** One generalist or multiple specialists?
-4. **Coding agents?** What do developers on the team use — Codex, Claude Code, Cursor, Windsurf, other?
-5. **Persistent memory?** Does the agent need to remember across sessions?
-6. **Tools and integrations?** Web browsing, API calls, file access, database queries?
-7. **Deployment?** Local machine, cloud, hybrid? Any infra preferences?
-8. **Knowledge base or docs site?** Does the system need a maintained wiki or published docs?
-9. **Complexity tolerance?** Minimal viable agent → production-grade system?
+3. **Can one agent handle most of the product, or do you have clear specialist boundaries?**
+4. **Boundary pressure?** Does the runtime need to deploy independently from the product shell, or can they ship together?
+5. **Coding agents?** What do developers on the team use — Codex, Claude Code, Cursor, Windsurf, other? This is secondary unless repo-operating guidance is part of the problem.
+6. **Persistent memory?** Does the agent need to remember across sessions?
+7. **Tools and integrations?** Web browsing, API calls, file access, database queries?
+8. **Deployment?** Local machine, cloud, hybrid? Any infra preferences?
+9. **Knowledge base or docs site?** Does the system need a maintained wiki or published docs?
+10. **Complexity tolerance?** Minimal viable agent → production-grade system?
 
 After the last question, move to synthesis. Do not ask for permission to synthesize — just do it.
 
 ## Synthesis
 
-Map the user's answers to patterns from the reference material. Structure the recommendation as:
+Map the user's answers to architecture shapes from the reference material. **Do not push a default shape.** Present the viable options with honest tradeoffs for the user's specific context, then help them decide.
 
-### Architecture Overview
-A 3–5 sentence summary of the recommended system.
+The key variables that should drive the decision (in rough order of impact):
+1. **Team size and release cadence** — is shared or independent deploy preferred?
+2. **Risk tolerance** — is the team comfortable with alpha/beta components if the architecture is sound?
+3. **Isolation requirements** — application-level or infrastructure-level?
+4. **Session durability needs** — Postgres persistence or durable stream?
+5. **Runtime swappability** — is optionality a strategic goal?
+
+If the user hasn't expressed a risk tolerance, ask. It's the most impactful variable and it changes which stacks are appropriate.
+
+### Architecture Options
+For each viable shape, give:
+- What it is
+- What it buys the team
+- What it costs
+- Which reference files back it
+
+Do not pick one and call it the default. Let the user's context drive the recommendation.
+
+If the user's situation fits multiple shapes, say so and explain the tradeoff that separates them.
+
+If a decision can't be made without more information, say what additional information is needed and why it matters.
 
 ### Component Recommendations
 For each major component, recommend a specific pattern and cite the reference file:
@@ -57,14 +77,24 @@ Use these reference files to ground recommendations. Read the relevant files bef
 
 | Topic | Reference File |
 |-------|---------------|
+| **Architecture decision guide (start here)** | `references/product-agent-architecture-decision-guide.md` |
+| **Runtime comparison matrix** | `references/compare-product-agent-runtime-options.md` |
+| Runtime vs. session state boundary | `references/runtime-vs-session-state-boundary.md` |
+| Rivet stack assessment | `references/agentos-rivet-for-product-agents.md` |
+| OpenClaw for product agents | `references/openclaw-for-product-agents.md` |
+| Pi as backstage worker | `references/pi-as-backstage-worker-pattern.md` |
+| Product-agent risks and open questions | `references/product-agent-open-questions-and-risks.md` |
+| Product-agent experiments | `references/product-agent-future-experiments.md` |
+| AI SDK v5 for product shells | `references/vercel-ai-sdk-v5.md` |
+| Inngest AgentKit | `references/inngest-agentkit.md` |
+| Mastra Framework | `references/mastra-framework.md` |
+| Rivet Actors | `references/rivet-actors.md` |
+| Rivet Workflows | `references/rivet-workflows.md` |
+| Rivet agentOS | `references/rivet-agentos.md` |
+| ElectricSQL Durable Streams | `references/electricsql-durable-streams.md` |
+| ElectricSQL StreamDB | `references/electricsql-streamdb.md` |
+| TanStack DB | `references/tanstack-db.md` |
 | Gateway, multi-channel routing, personal agent | `references/openclaw-docs.md` |
-| Repo conventions for Codex / AGENTS.md | `references/codex-customization-docs.md` |
-| Repo conventions for Claude Code / CLAUDE.md | `references/claude-code-memory-docs.md` |
-| LLM-maintained wiki pattern | `references/karpathy-llm-wiki.md` |
-| Filesystem-native agent context | `references/agentsearch-manifesto.md` |
-| Local sync, context sharing, agent plugins | `references/nia-docs.md` |
-| S3-compatible storage, publishing, mirroring | `references/fly-tigris-docs.md` |
-| Docs site framework | `references/fumadocs-docs.md` |
 | Full topic → source mapping | `references/source-map.md` |
 
 ## Grounding Rules
@@ -75,3 +105,4 @@ Use these reference files to ground recommendations. Read the relevant files bef
 4. **Distinguish confidence levels.** "This pattern is well-documented in our sources" vs. "Based on general knowledge."
 5. **Never hallucinate tool names or features.** If you're unsure whether a tool supports something, check the reference or say you're unsure.
 6. **No fluff.** Concrete recommendations with specific tool names and patterns. Skip "it depends" without a follow-up opinion.
+7. **Do extra research when needed.** If the decision hinges on something not covered by the curated sources, say so and offer to research it. The curated KB is a starting point, not a ceiling.
