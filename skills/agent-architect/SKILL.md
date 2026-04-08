@@ -33,12 +33,29 @@ After the last question, move to synthesis. Do not ask for permission to synthes
 
 ## Synthesis
 
-Map the user's answers to patterns from the reference material. Structure the recommendation as:
+Map the user's answers to architecture shapes from the reference material. **Do not push a default shape.** Present the viable options with honest tradeoffs for the user's specific context, then help them decide.
 
-Default rule: recommend a unified single-codebase architecture by default unless the user clearly needs multiple product surfaces, independent runtime deploys, hard tenant isolation, or repeated long-running background execution.
+The key variables that should drive the decision (in rough order of impact):
+1. **Team size and release cadence** — is shared or independent deploy preferred?
+2. **Risk tolerance** — is the team comfortable with alpha/beta components if the architecture is sound?
+3. **Isolation requirements** — application-level or infrastructure-level?
+4. **Session durability needs** — Postgres persistence or durable stream?
+5. **Runtime swappability** — is optionality a strategic goal?
 
-### Architecture Overview
-A 3–5 sentence summary of the recommended system.
+If the user hasn't expressed a risk tolerance, ask. It's the most impactful variable and it changes which stacks are appropriate.
+
+### Architecture Options
+For each viable shape, give:
+- What it is
+- What it buys the team
+- What it costs
+- Which reference files back it
+
+Do not pick one and call it the default. Let the user's context drive the recommendation.
+
+If the user's situation fits multiple shapes, say so and explain the tradeoff that separates them.
+
+If a decision can't be made without more information, say what additional information is needed and why it matters.
 
 ### Component Recommendations
 For each major component, recommend a specific pattern and cite the reference file:
@@ -60,24 +77,24 @@ Use these reference files to ground recommendations. Read the relevant files bef
 
 | Topic | Reference File |
 |-------|---------------|
+| **Architecture decision guide (start here)** | `references/product-agent-architecture-decision-guide.md` |
+| **Runtime comparison matrix** | `references/compare-product-agent-runtime-options.md` |
+| Runtime vs. session state boundary | `references/runtime-vs-session-state-boundary.md` |
+| Rivet stack assessment | `references/agentos-rivet-for-product-agents.md` |
+| OpenClaw for product agents | `references/openclaw-for-product-agents.md` |
+| Pi as backstage worker | `references/pi-as-backstage-worker-pattern.md` |
+| Product-agent risks and open questions | `references/product-agent-open-questions-and-risks.md` |
+| Product-agent experiments | `references/product-agent-future-experiments.md` |
+| AI SDK v5 for product shells | `references/vercel-ai-sdk-v5.md` |
+| Inngest AgentKit | `references/inngest-agentkit.md` |
+| Mastra Framework | `references/mastra-framework.md` |
+| Rivet Actors | `references/rivet-actors.md` |
+| Rivet Workflows | `references/rivet-workflows.md` |
+| Rivet agentOS | `references/rivet-agentos.md` |
+| ElectricSQL Durable Streams | `references/electricsql-durable-streams.md` |
+| ElectricSQL StreamDB | `references/electricsql-streamdb.md` |
+| TanStack DB | `references/tanstack-db.md` |
 | Gateway, multi-channel routing, personal agent | `references/openclaw-docs.md` |
-| Repo conventions for Codex / AGENTS.md | `references/codex-customization-docs.md` |
-| Repo conventions for Claude Code / CLAUDE.md | `references/claude-code-memory-docs.md` |
-| Product-agent default shell and decision rules | `references/vercel-ai-sdk-v5.md` |
-| Durable agent execution harness | `references/inngest-agentkit.md` |
-| TS-native agent framework with memory/eval surface | `references/mastra-framework.md` |
-| Actor-based runtime foundation | `references/rivet-actors.md` |
-| Actor-native durable workflows | `references/rivet-workflows.md` |
-| Preview coding-agent runtime | `references/rivet-agentos.md` |
-| Durable session stream pattern | `references/electricsql-durable-streams.md` |
-| Reactive state plane over streams | `references/electricsql-streamdb.md` |
-| Reactive client-side data layer | `references/tanstack-db.md` |
-| LLM-maintained wiki pattern | `references/karpathy-llm-wiki.md` |
-| Filesystem-native agent context | `references/agentsearch-manifesto.md` |
-| Local sync, context sharing, agent plugins | `references/nia-docs.md` |
-| Internal orchestration, gateway, personal agent | `references/openclaw-docs.md` |
-| S3-compatible storage, publishing, mirroring | `references/fly-tigris-docs.md` |
-| Docs site framework | `references/fumadocs-docs.md` |
 | Full topic → source mapping | `references/source-map.md` |
 
 ## Grounding Rules
@@ -88,4 +105,4 @@ Use these reference files to ground recommendations. Read the relevant files bef
 4. **Distinguish confidence levels.** "This pattern is well-documented in our sources" vs. "Based on general knowledge."
 5. **Never hallucinate tool names or features.** If you're unsure whether a tool supports something, check the reference or say you're unsure.
 6. **No fluff.** Concrete recommendations with specific tool names and patterns. Skip "it depends" without a follow-up opinion.
-7. **OpenClaw is an internal orchestration reference, not the default product runtime.** Use it to ground gateway, memory-file, and operator-tooling patterns unless the user explicitly needs a personal-agent or internal-ops system.
+7. **Do extra research when needed.** If the decision hinges on something not covered by the curated sources, say so and offer to research it. The curated KB is a starting point, not a ceiling.
