@@ -9,6 +9,7 @@ const execFileAsync = promisify(execFile);
 interface SearchHit {
   path: string;
   score: number;
+  rawHitCount: number;
   matchedLines: { line: number; text: string }[];
   title?: string;
   tags?: string[];
@@ -21,6 +22,19 @@ interface SearchOptions {
 }
 
 const REPO_ROOT = process.cwd();
+const BASENAME_TOKEN_BONUS = 4;
+const PATH_SEGMENT_TOKEN_BONUS = 2;
+const TITLE_TOKEN_BONUS = 5;
+const TAG_TOKEN_BONUS = 3;
+const STRONG_RAW_HIT_THRESHOLD = 8;
+const LENGTH_NORMALIZATION_KB_SCALE = 10;
+
+function computeLengthPenalty(rawHitCount: number, contentLength: number): number {
+  if (rawHitCount >= STRONG_RAW_HIT_THRESHOLD) return 1;
+
+  const lengthKb = contentLength / 1024;
+  return 1 / Math.sqrt(1 + lengthKb / LENGTH_NORMALIZATION_KB_SCALE);
+}
 
 const SCOPES: Record<string, string[]> = {
   all: [
@@ -39,9 +53,8 @@ async function ripgrepSearch(query: string, paths: string[]): Promise<Map<string
   // Tokenize: split on whitespace, keep tokens >= 3 chars, lowercase
   const tokens = query
     .toLowerCase()
-    .split(/\s+/)
+    .split(/[^a-z0-9-]+/)
     .filter((t) => t.length >= 3)
-    .map((t) => t.replace(/[^a-z0-9-]/g, ""))
     .filter(Boolean);
 
   if (tokens.length === 0) return hits;
@@ -85,10 +98,11 @@ async function ripgrepSearch(query: string, paths: string[]): Promise<Map<string
 
         let hit = hits.get(filePath);
         if (!hit) {
-          hit = { path: filePath, score: 0, matchedLines: [] };
+          hit = { path: filePath, score: 0, rawHitCount: 0, matchedLines: [] };
           hits.set(filePath, hit);
         }
         hit.score += 1;
+        hit.rawHitCount += 1;
         if (hit.matchedLines.length < 5) {
           hit.matchedLines.push({ line: lineNumber, text: lineText });
         }
@@ -121,38 +135,36 @@ async function ripgrepSearch(query: string, paths: string[]): Promise<Map<string
         if (h1Match?.[1]) hit.title = h1Match[1].trim();
       }
 
-      // Path/filename bonus — heavy weight because path names are curated.
-      // Strip common dirs and extension before matching tokens.
+      // Path/filename bonus. Strip common dirs and extension before matching tokens.
       const pathBasename = hit.path
         .toLowerCase()
         .replace(/^.*\//, "")
         .replace(/\.md$/, "");
       const pathSegments = hit.path.toLowerCase().split(/[\/_-]/);
       for (const token of tokens) {
-        if (pathBasename.includes(token)) hit.score += 15;
-        else if (pathSegments.some((seg) => seg.includes(token))) hit.score += 6;
+        if (pathBasename.includes(token)) hit.score += BASENAME_TOKEN_BONUS;
+        else if (pathSegments.some((seg) => seg.includes(token))) hit.score += PATH_SEGMENT_TOKEN_BONUS;
       }
 
       // Title-match bonus
       if (hit.title) {
         const titleLower = hit.title.toLowerCase();
         for (const token of tokens) {
-          if (titleLower.includes(token)) hit.score += 5;
+          if (titleLower.includes(token)) hit.score += TITLE_TOKEN_BONUS;
         }
       }
       // Tag-match bonus
       if (hit.tags) {
         for (const tag of hit.tags) {
           for (const token of tokens) {
-            if (tag.toLowerCase().includes(token)) hit.score += 3;
+            if (tag.toLowerCase().includes(token)) hit.score += TAG_TOKEN_BONUS;
           }
         }
       }
 
-      // BM25-style length normalization: penalize long documents.
-      // Use a soft normalization so very short docs aren't massively boosted.
-      const lengthKb = content.length / 1024;
-      const lengthPenalty = 1 / (1 + Math.log10(1 + lengthKb / 5));
+      // BM25-style length normalization: soften the curve for longer documents
+      // and stop penalizing documents that already have strong raw content overlap.
+      const lengthPenalty = computeLengthPenalty(hit.rawHitCount, content.length);
       hit.score = Math.round(hit.score * lengthPenalty * 100) / 100;
     } catch {
       // skip files we can't read
@@ -184,9 +196,9 @@ export function registerSearchCommand(parent: Command): void {
       const sorted = Array.from(hits.values())
         .sort((a, b) => b.score - a.score)
         .slice(0, limit)
-        .map((h) => ({
-          ...h,
-          path: relative(REPO_ROOT, h.path),
+        .map(({ rawHitCount: _rawHitCount, ...hit }) => ({
+          ...hit,
+          path: relative(REPO_ROOT, hit.path),
         }));
 
       if (options.json) {
