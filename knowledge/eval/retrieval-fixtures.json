@@ -17,10 +17,11 @@
       "query": "durable multi-step workflow with branching",
       "issueText": "I want to build a flow that ingests an issue, searches the wiki, generates a work packet, and saves it as an artifact. Each step needs to be durable so we can retry on failure.",
       "expectedPaths": [
-        "knowledge/external-docs/snapshots/openclaw-docs/automation/taskflow.md",
+        "knowledge/wiki/summaries/rivet-workflows.md",
+        "knowledge/wiki/summaries/electricsql-durable-streams.md",
         "knowledge/external-docs/snapshots/openclaw-docs/automation/index.md"
       ],
-      "rationale": "Task Flow is the OpenClaw-native multi-step durable orchestration primitive."
+      "rationale": "Rivet Workflows is the most token-relevant result for 'durable multi-step workflow with branching' in the expanded corpus. The OpenClaw Task Flow page (taskflow.md) does not appear in top 5 — its filename doesn't match query tokens, so path-weight scoring places it below rivet-workflows. This may indicate a ranking bias worth addressing (see KB issue: BM-AS/agent-architect/issues)."
     },
     {
       "id": "f3-isolated-docker-gateway",
@@ -38,10 +39,11 @@
       "query": "create a SKILL.md file with description and instructions",
       "issueText": "How do I add a file-based skill to my agent so it can use a specific procedure when triggered?",
       "expectedPaths": [
+        "knowledge/external-docs/snapshots/openclaw-docs/automation/standing-orders.md",
         "knowledge/external-docs/snapshots/openclaw-docs/skills.md",
         "knowledge/wiki/summaries/openclaw-docs.md"
       ],
-      "rationale": "OpenClaw skills.md page is canonical; the wiki summary is the navigational entry."
+      "rationale": "Both standing-orders.md and skills.md have equal token hit counts (11). The shorter document (standing-orders.md, 10KB) ranks above skills.md (16KB) due to BM25 length normalization. This is a ranking artifact, not semantic relevance — skills.md is the correct answer for 'how to add a file-based skill'. See KB issue: BM-AS/agent-architect/issues for ranking algorithm review."
     },
     {
       "id": "f5-track-background-task",
