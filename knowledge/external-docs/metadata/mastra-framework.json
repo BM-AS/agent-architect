@@ -1,0 +1,23 @@
+{
+  "id": "mastra-framework",
+  "title": "Mastra Framework",
+  "url": "https://mastra.ai/",
+  "additionalUrls": [
+    "https://mastra.ai/en/reference/agents/agent",
+    "https://mastra.ai/blog/changelog-2026-01-20"
+  ],
+  "category": "agent-frameworks",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "framework",
+    "memory",
+    "workflows",
+    "evals",
+    "typescript"
+  ],
+  "addedAt": "2026-04-08T00:00:00.000Z",
+  "reviewedAt": "2026-04-08T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/mastra-framework.md",
+  "rationale": "Adds the strongest TypeScript-native framework reference for teams that need more built-in memory, orchestration, and evaluation support than the default stack provides."
+}

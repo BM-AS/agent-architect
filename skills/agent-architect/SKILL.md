@@ -20,19 +20,22 @@ Walk through these questions **one at a time**. Acknowledge each answer with a b
 
 1. **What are you building?** Domain, purpose, who uses it.
 2. **What surfaces?** Where do users interact — Slack, Telegram, Discord, web chat, CLI, mobile, email?
-3. **Single or multi-agent?** One generalist or multiple specialists?
-4. **Coding agents?** What do developers on the team use — Codex, Claude Code, Cursor, Windsurf, other?
-5. **Persistent memory?** Does the agent need to remember across sessions?
-6. **Tools and integrations?** Web browsing, API calls, file access, database queries?
-7. **Deployment?** Local machine, cloud, hybrid? Any infra preferences?
-8. **Knowledge base or docs site?** Does the system need a maintained wiki or published docs?
-9. **Complexity tolerance?** Minimal viable agent → production-grade system?
+3. **Can one agent handle most of the product, or do you have clear specialist boundaries?**
+4. **Boundary pressure?** Does the runtime need to deploy independently from the product shell, or can they ship together?
+5. **Coding agents?** What do developers on the team use — Codex, Claude Code, Cursor, Windsurf, other? This is secondary unless repo-operating guidance is part of the problem.
+6. **Persistent memory?** Does the agent need to remember across sessions?
+7. **Tools and integrations?** Web browsing, API calls, file access, database queries?
+8. **Deployment?** Local machine, cloud, hybrid? Any infra preferences?
+9. **Knowledge base or docs site?** Does the system need a maintained wiki or published docs?
+10. **Complexity tolerance?** Minimal viable agent → production-grade system?
 
 After the last question, move to synthesis. Do not ask for permission to synthesize — just do it.
 
 ## Synthesis
 
 Map the user's answers to patterns from the reference material. Structure the recommendation as:
+
+Default rule: recommend a unified single-codebase architecture by default unless the user clearly needs multiple product surfaces, independent runtime deploys, hard tenant isolation, or repeated long-running background execution.
 
 ### Architecture Overview
 A 3–5 sentence summary of the recommended system.
@@ -60,9 +63,19 @@ Use these reference files to ground recommendations. Read the relevant files bef
 | Gateway, multi-channel routing, personal agent | `references/openclaw-docs.md` |
 | Repo conventions for Codex / AGENTS.md | `references/codex-customization-docs.md` |
 | Repo conventions for Claude Code / CLAUDE.md | `references/claude-code-memory-docs.md` |
+| Product-agent default shell and decision rules | `references/vercel-ai-sdk-v5.md` |
+| Durable agent execution harness | `references/inngest-agentkit.md` |
+| TS-native agent framework with memory/eval surface | `references/mastra-framework.md` |
+| Actor-based runtime foundation | `references/rivet-actors.md` |
+| Actor-native durable workflows | `references/rivet-workflows.md` |
+| Preview coding-agent runtime | `references/rivet-agentos.md` |
+| Durable session stream pattern | `references/electricsql-durable-streams.md` |
+| Reactive state plane over streams | `references/electricsql-streamdb.md` |
+| Reactive client-side data layer | `references/tanstack-db.md` |
 | LLM-maintained wiki pattern | `references/karpathy-llm-wiki.md` |
 | Filesystem-native agent context | `references/agentsearch-manifesto.md` |
 | Local sync, context sharing, agent plugins | `references/nia-docs.md` |
+| Internal orchestration, gateway, personal agent | `references/openclaw-docs.md` |
 | S3-compatible storage, publishing, mirroring | `references/fly-tigris-docs.md` |
 | Docs site framework | `references/fumadocs-docs.md` |
 | Full topic → source mapping | `references/source-map.md` |
@@ -75,3 +88,4 @@ Use these reference files to ground recommendations. Read the relevant files bef
 4. **Distinguish confidence levels.** "This pattern is well-documented in our sources" vs. "Based on general knowledge."
 5. **Never hallucinate tool names or features.** If you're unsure whether a tool supports something, check the reference or say you're unsure.
 6. **No fluff.** Concrete recommendations with specific tool names and patterns. Skip "it depends" without a follow-up opinion.
+7. **OpenClaw is an internal orchestration reference, not the default product runtime.** Use it to ground gateway, memory-file, and operator-tooling patterns unless the user explicitly needs a personal-agent or internal-ops system.

@@ -1,0 +1,22 @@
+{
+  "id": "rivet-workflows",
+  "title": "Rivet Workflows",
+  "url": "https://www.rivet.dev/docs/actors/workflows/",
+  "additionalUrls": [
+    "https://rivet.dev/changelog/2026-02-24-introducing-rivet-workflows/"
+  ],
+  "category": "agent-runtime",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "rivet",
+    "workflows",
+    "durable-execution",
+    "actors",
+    "beta"
+  ],
+  "addedAt": "2026-04-08T00:00:00.000Z",
+  "reviewedAt": "2026-04-08T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/rivet-workflows.md",
+  "rationale": "Documents Rivet's actor-native workflow model so the repo can compare co-located durable execution against Inngest, Temporal, and service-split patterns."
+}

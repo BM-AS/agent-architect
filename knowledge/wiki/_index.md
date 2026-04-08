@@ -6,6 +6,7 @@ This wiki is the maintained knowledge layer for the repository. It sits between 
 
 - [Foundational Sources](references/foundational-sources.md) groups the seeded sources by category and explains why each belongs in the corpus.
 - [Source Map](references/source-map.md) shows which sources matter most for common implementation questions.
+- [Recommended Main Product-Agent Architecture](references/recommended-main-product-agent-architecture.md) is the primary decision page for building a customer-facing product agent, with companion pages covering runtime boundaries, comparisons, risks, and future experiments.
 - `summaries/` contains one source summary per external document. Each page captures the key ideas, operational implications, and where that source fits in the overall knowledge model.
 
 ## Operating Model

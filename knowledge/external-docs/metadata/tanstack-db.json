@@ -1,0 +1,23 @@
+{
+  "id": "tanstack-db",
+  "title": "TanStack DB",
+  "url": "https://tanstack.com/db/latest",
+  "additionalUrls": [
+    "https://tanstack.com/db/latest/docs/overview",
+    "https://tanstack.com/db/latest/docs/guides/ssr"
+  ],
+  "category": "state-sync",
+  "sourceType": "docs",
+  "authorityLevel": "primary",
+  "tags": [
+    "reactive-db",
+    "live-queries",
+    "optimistic-ui",
+    "sync",
+    "beta"
+  ],
+  "addedAt": "2026-04-08T00:00:00.000Z",
+  "reviewedAt": "2026-04-08T00:00:00.000Z",
+  "summaryPagePath": "knowledge/wiki/summaries/tanstack-db.md",
+  "rationale": "Provides the reactive data-layer context behind StreamDB and other client-facing session-state patterns, while highlighting current SSR and maturity constraints."
+}
